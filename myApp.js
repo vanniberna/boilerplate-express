@@ -2,6 +2,16 @@ require('dotenv').config()
 let express = require('express');
 let app = express();
 
+
+app.get(function middleware(req, res, next) {
+  var string = req.method + " " + req.path + " - " + req.ip;
+  console.log(string)
+  next()
+}); 
+
+
+
+/*
 app.get("/json", (req, res) => {
   if (process.env.MESSAGE_STYLE==="uppercase") {
     res.json({
@@ -12,7 +22,7 @@ app.get("/json", (req, res) => {
       message: "Hello json"
     });
   }
-});
+}); */
 
 
 
