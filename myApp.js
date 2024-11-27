@@ -1,13 +1,23 @@
-require('dotenv').config()
+//require('dotenv').config()
 let express = require('express');
 let app = express();
 
+app.get('/now', function(req, res, next) {
+  req.time = new Date().toString();   
+  next();
+}, function(req, res) {
+  res.json({time: req.time});
+});
+
+
+
+/*
 app.use(function middleware(req, res, next) {
   let string = `${req.method} ${req.path} - ${req.ip}`;
   console.log(string);
   next(); // Move to the next middleware/route
 });
-
+*/
 
 
 /*
