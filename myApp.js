@@ -9,7 +9,10 @@ app.get('/now', function(req, res, next) {
   res.json({time: req.time});
 });
 
-
+const port = process.env.PORT || 3000;
+app.listen(port, () => {
+  console.log(`Server is running on port ${port}`);
+});
 
 /*
 app.use(function middleware(req, res, next) {
